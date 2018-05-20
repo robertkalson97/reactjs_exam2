@@ -1,38 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Content from './Content';
+
 import './App.css';
-import Username from './Username.js';
-import { Button } from 'reactstrap';
 
 class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      value:'ON'
+    constructor(props){
+        super(props);
+        this.state = {
+            add_value:'', list_array:[]
+        }
+        this.getValueHandler = this.getValueHandler.bind(this);
+        this.addValueHander = this.addValueHander.bind(this);
+    };
+    getValueHandler = (e) => {
+        this.setState({ add_value: e.target.value });
     }
-  };
-  onClick_change=()=>{
-    // console.log(this.state.value);
-    if(this.state.value === 'ON'){
-      this.setState({ value:'OFF' });
+    addValueHander = () => {
+        var item = this.state.add_value;
+        var myArray = this.state.list_array;
+        if(item !== '')
+	         myArray.push(item);
+        this.setState({ list_array: myArray, add_value:'' });
     }
-    else{
-      this.setState({ value:'ON' });
-    }
-  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-          <Username name = 'MARK'/>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Button color="primary" onClick={ this.onClick_change}>{ this.state.value }</Button>
-      </div>
+        <Content added_list_array = { this.state.list_array } inputValue={this.state.add_value} get_function={this.getValueHandler} add_function={this.addValueHander}/>
     );
   }
 }

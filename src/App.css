@@ -9,7 +9,6 @@
 
 .App-header {
   background-color: #222;
-  height: 200px;
   padding: 20px;
   color: white;
 }
@@ -18,11 +17,26 @@
   font-size: 1.5em;
 }
 
-.App-intro {
-  font-size: large;
+.button-red{
+  color: red;
+  font-size: 20px;
+  width: 70px;
 }
-
+.button-blue{
+  color: blue;
+  font-size: 20px;
+  width: 70px;
+}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+.content{
+	margin: 30px auto;
+	width: 500px;
+}
+.list_content{
+	text-align: left;
+	margin-top: 30px;
+	
 }
